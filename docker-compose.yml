@@ -1,0 +1,12 @@
+version: '3'
+
+services: 
+    app:
+        build: .
+        volumes: 
+            - ./:/var/www
+    
+    redis:
+        image: redis:alpine
+        expose:
+            - 6379

@@ -1,0 +1,6 @@
+{
+    "name": "romarioarruda/redis-pubsub",
+    "require": {
+        "predis/predis": "^1.1"
+    }
+}
