@@ -18,10 +18,16 @@ Acessando o container
 $ docker-compose exec app bash
 ```
 
+Rodando o pub/sub
+
+```
+$ php index.php
+```
+
 Acessando o Redis dentro do container
 
 ```
-$ redis-cli redis -h nome_host
+$ redis-cli -h nome_host
 ```
 
 Publicando uma mensagem num canal no redis
