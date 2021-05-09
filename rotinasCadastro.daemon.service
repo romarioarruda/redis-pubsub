@@ -1,9 +1,9 @@
 [Unit]
-Description=Rotinas após cadastro
+Description=rotinasAposCadastro
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/php7.4 -d "default_socket_timeout=-1" -f /Users/romarioarruda/Desktop/redis-pubsub/src/workers
+ExecStart=/usr/bin/php7.4 -d "default_socket_timeout=-1" -f /var/www/html/src/workers/rotinasCadastro.daemon.service
 Restart=always
 
 [Install]
