@@ -1,12 +1,8 @@
-FROM php:7.3.6-fpm-alpine3.9
-RUN apk add --no-cache bash vim redis
+FROM php:7.4-apache
 
-WORKDIR /var/www
-RUN rm -rf /var/www/html
+RUN apt-get -y update --fix-missing && \
+    apt-get upgrade -y && \
+    apt-get --no-install-recommends install -y apt-utils && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN ln -s public html
-
-EXPOSE  9000
-ENTRYPOINT ["php-fpm"]

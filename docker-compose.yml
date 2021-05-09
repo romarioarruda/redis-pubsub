@@ -4,9 +4,11 @@ services:
     app:
         build: .
         volumes: 
-            - ./:/var/www
-    
+            - ./:/var/www/html
+            - ./rotinasCadastro.daemon.service:/etc/systemd/system/rotinasCadastro.daemon.service
     redis:
-        image: redis:alpine
-        expose:
-            - 6379
+        image: redis
+        ports:
+            - 6379:6379
+
+        

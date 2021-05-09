@@ -1,29 +1,21 @@
 <?php
 require_once "vendor/autoload.php";
 
-$remoteRedis = [
-    'host' => 'redis',
-    'port' => 6379,
-    'read_write_timeout' => 0
-];
+use Predis\Client;
+use \Superbalist\PubSub\Redis\RedisPubSubAdapter;
 
-$redis = new Predis\Client($remoteRedis);
+$redisConfig = parse_ini_file('env.ini');
 
-$loop = $redis->pubSubLoop();
-$loop->subscribe("canal_exemplo");
+$client = new Client([
+    'host' => $redisConfig['host'],
+    'port' => $redisConfig['port'],
+    'read_write_timeout' => $redisConfig['read_write_timeout'],
+]);
 
-foreach($loop as $message) {
-    switch($message->kind) {
-        case 'subscribe':
-            echo "Me inscrevi no canal: {$message->channel}\n";
-            break;
-        case 'message':
-            if ($message->payload == 'sair'){
-                $loop->unsubscribe();
-            }
-            echo "Recebi mensagem do canal: {$message->channel} \nMSG: {$message->payload}\n";
-            break;
-    }
-}
+$adapter = new RedisPubSubAdapter($client);
 
-unset($loop);
+$adapter->publish('rotinas.apos.cadastro', json_encode([
+    'nome' => 'Romário arruda',
+    'cpf' => '123.456.789-10',
+    'cartaoCredito' => '0000000000000',
+], JSON_PRETTY_PRINT));

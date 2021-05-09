@@ -1,0 +1,10 @@
+[Unit]
+Description=Rotinas após cadastro
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/php7.4 -d "default_socket_timeout=-1" -f /Users/romarioarruda/Desktop/redis-pubsub/src/workers
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
