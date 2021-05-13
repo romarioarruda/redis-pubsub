@@ -1,9 +1,19 @@
 {
-    "nome": "Tati arruda",
-    "cpf": "123.456.789-10",
-    "cartaoCredito": "0000000000000"
+    "serasa": {
+        "nome": "Rom\u00e1rio arruda",
+        "cpf": "123.456.789-10",
+        "inserted_at": "2021-05-13 23:46:05"
+    }
 }{
-    "nome": "Rom\u00e1rio arruda",
-    "cpf": "123.456.789-10",
-    "cartaoCredito": "0000000000000"
+    "bancos": {
+        "nome": "Rom\u00e1rio arruda",
+        "cartaoCredito": "0000000000000",
+        "inserted_at": "2021-05-13 23:46:05"
+    }
+}{
+    "antecedentes": {
+        "nome": "Rom\u00e1rio arruda",
+        "cpf": "123.456.789-10",
+        "inserted_at": "2021-05-13 23:46:05"
+    }
 }

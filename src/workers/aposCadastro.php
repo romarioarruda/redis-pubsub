@@ -19,10 +19,8 @@ $adapter = new RedisPubSubAdapter($client);
 
 $adapter->subscribe('rotinas.apos.cadastro', function ($dados) {
     RotinasAposCadastro::getInstance()
-    ->validaSerasa()
-    ->validaInstituicoesFinanceiras()
-    ->validaAntecedentesCriminais()
+    ->validaSerasa($dados)
+    ->validaInstituicoesFinanceiras($dados)
+    ->validaAntecedentesCriminais($dados)
     ->enviaEmail();
-    
-    file_put_contents('logs.log', $dados, FILE_APPEND);
 });

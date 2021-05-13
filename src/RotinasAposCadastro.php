@@ -8,27 +8,53 @@ class RotinasAposCadastro
         return new RotinasAposCadastro;
     }
 
-    public function validaSerasa()
+    public function validaSerasa($dados)
     {
-        /**
-         * implentação fake...
-         */
+        $dados = json_decode($dados, true);
+
+        $arrayForSave = [
+            'serasa' => [
+                'nome' => $dados['nome'],
+                'cpf' => $dados['cpf'],
+                'inserted_at' => date('Y-m-d H:i:s')
+            ]
+        ];
+
+        file_put_contents('logs.log', json_encode($arrayForSave, JSON_PRETTY_PRINT), FILE_APPEND);
+
         return $this;
     }
     
-    public function validaInstituicoesFinanceiras()
+    public function validaInstituicoesFinanceiras($dados)
     {
-        /**
-         * implentação fake...
-         */
+        $dados = json_decode($dados, true);
+
+        $arrayForSave = [
+            'bancos' => [
+                'nome' => $dados['nome'],
+                'cartaoCredito' => $dados['cartaoCredito'],
+                'inserted_at' => date('Y-m-d H:i:s')
+            ]
+        ];
+
+        file_put_contents('logs.log', json_encode($arrayForSave, JSON_PRETTY_PRINT), FILE_APPEND);
+       
         return $this;
     }
 
-    public function validaAntecedentesCriminais()
+    public function validaAntecedentesCriminais($dados)
     {
-        /**
-         * implentação fake...
-         */
+        $dados = json_decode($dados, true);
+
+        $arrayForSave = [
+            'antecedentes' => [
+                'nome' => $dados['nome'],
+                'cpf' => $dados['cpf'],
+                'inserted_at' => date('Y-m-d H:i:s')
+            ]
+        ];
+
+        file_put_contents('logs.log', json_encode($arrayForSave, JSON_PRETTY_PRINT), FILE_APPEND);
         return $this;
     }
 
