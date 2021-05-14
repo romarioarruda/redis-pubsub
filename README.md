@@ -27,7 +27,7 @@ $ php index.php
 Rodando o subscriber
 
 ```
-$ cd cd src/workers/
+$ cd src/workers/
 
 $ php aposCastro.php
 ```
